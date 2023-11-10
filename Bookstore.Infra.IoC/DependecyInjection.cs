@@ -1,4 +1,6 @@
 using Bookstore.Application.DTOs.Mapping;
+using Bookstore.Application.Interfaces;
+using Bookstore.Application.Services;
 using Bookstore.Domain.Interfaces;
 using Bookstore.Infra.Data.Context;
 using Bookstore.Infra.Data.Repositories;
@@ -19,6 +21,13 @@ namespace Bookstore.Infra.IoC
             service.AddAutoMapper(typeof(MappingProfile));
             
             service.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            service.AddScoped<IUserService, UserService>();
+            service.AddScoped<IBookService, BookService>();
+            service.AddScoped<IRentService, RentService>();
+            service.AddScoped<ICopyBookService, CopyBookService>();
+            service.AddScoped<IPersonService, PersonService>();
+            service.AddScoped<ITokenService, TokenService>();
             
             return service;
         }

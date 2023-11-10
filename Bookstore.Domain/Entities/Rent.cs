@@ -16,9 +16,10 @@ namespace Bookstore.Domain.Entities
         {
             CopyBookId = copyBookId;
             PersonId = personId;
-            if(charOperation != "S" || charOperation != "E") throw new BookstoreException("Operacao so pode ser S para saida e E para entrada");
+            if(charOperation != "S" && charOperation != "E") throw new BookstoreException("Operacao so pode ser S para saida e E para entrada");
             CharOperation = charOperation;
             IsLate = isLate;
+            Active = true;
         }
     }
 }

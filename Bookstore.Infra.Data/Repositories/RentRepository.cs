@@ -26,7 +26,7 @@ namespace Bookstore.Infra.Data.Repositories
         }
         public async Task<IEnumerable<Rent>> GetByCopyBookIdAndOperation(long copyBookId, string charOperation)
         {
-            return await _context.Rents.Where(r => r.Active == true && r.CopyBookId == copyBookId && r.CharOperation == charOperation).ToListAsync();
+            return await _context.Rents.Where(r => r.Active == true && r.CopyBookId == copyBookId && r.CharOperation == charOperation).OrderBy(r => r.Id).ToListAsync();
         }
         public async Task<IEnumerable<Rent>> GetByPersonId(long personId)
         {
